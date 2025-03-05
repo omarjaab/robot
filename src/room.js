@@ -1,4 +1,3 @@
-
 class Room {
     constructor(width, height) {
         this.width = width;

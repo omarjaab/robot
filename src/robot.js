@@ -1,4 +1,3 @@
-
 const Room = require('./room');
 
 class Robot {
