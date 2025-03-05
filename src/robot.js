@@ -1,4 +1,5 @@
 const Room = require('./room');
+const commands = require('./commands');
 
 class Robot {
     constructor(x, y, direction, room) {
@@ -40,7 +41,16 @@ class Robot {
             throw new Error("Error: Robot moved out of bounds!");
         }
     }
-
+    // Execute commands
+    executeCommands(commandString) {
+        for (let command of commandString) {
+            if (commands[command]) {
+                commands[command](this);
+            } else {
+                throw new Error(`Invalid command: ${command}`);
+            }
+        }
+    }
     // Returns the final position and direction of the robot
     report() {
         return `${this.x} ${this.y} ${this.direction}`;
